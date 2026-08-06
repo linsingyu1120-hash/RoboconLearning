@@ -8,11 +8,13 @@
                 "e:\\robocon\\whu robocon\\RoboconLearning\\Drivers\\STM32H7xx_HAL_Driver\\Inc\\Legacy",
                 "e:\\robocon\\whu robocon\\RoboconLearning\\Drivers\\CMSIS\\Device\\ST\\STM32H7xx\\Include",
                 "e:\\robocon\\whu robocon\\RoboconLearning\\Drivers\\CMSIS\\Include",
+                "e:\\robocon\\whu robocon\\RoboconLearning\\user\\inc",
                 "e:\\robocon\\whu robocon\\RoboconLearning\\hardware\\inc",
                 "e:\\robocon\\whu robocon\\RoboconLearning\\MDK-ARM",
                 "e:\\robocon\\whu robocon\\RoboconLearning\\Core\\Src",
                 "e:\\robocon\\whu robocon\\RoboconLearning\\Drivers\\STM32H7xx_HAL_Driver\\Src",
                 "e:\\robocon\\whu robocon\\RoboconLearning\\hardware\\src",
+                "e:\\robocon\\whu robocon\\RoboconLearning\\user\\src",
                 "${default}"
             ],
             "defines": [
