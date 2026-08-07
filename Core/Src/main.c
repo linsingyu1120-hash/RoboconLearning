@@ -2,10 +2,11 @@
 #include "gpio.h"
 #include "buzzer.h"  
 #include "led.h"  
-//#include "user_beep.h"
+#include "liushuideng.h"
+#include "user_beep.h"
 
 #define LED_COUNT   4U   /*板载 LED 数量，U 表示 unsigned 无符号数 */
-#define BLINK_TIMES 3U    /* 每颗 LED /*  闪烁次数 */
+#define BLINK_TIMES 1U    /* 每颗 LED /*  闪烁次数 */
 #define DELAY_MS    250U  /* LED 亮/灭持续时间，单位毫秒 */
 #define BEEP_MS     120U  /* 蜂鸣器响一声的时长 */
 
@@ -32,23 +33,7 @@ int main(void)
   
   while (1)
   {
-    current_led = 1U; 
-    while (current_led <= led_count)
-    {
-      blink_led(current_led, blink_times, delay_ms);
-      current_led++;
-    }
-
-    beep(BEEP_MS);
-
-    if (delay_ms > 100U)
-    {
-      delay_ms -= 20U; 
-    }
-    else
-    {
-      delay_ms = DELAY_MS;
-    }
+    void alarm_sys_func(void)
   }
 }
 
