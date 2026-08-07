@@ -39,42 +39,37 @@ void alarm_sys_func(void)
   uint8_t delay_ms;
   uint8_t i;
 
-	switch(mode)
-	 {
+  switch(mode)
+	{
 	  case 0U:
-		HAL_Delay(5000);
+	  HAL_Delay(5000); //延时5秒
 	  break;
 	
 	  case 1U:
 	  for(i=0;i<5;i++)
 	  {
-	    for(led=1U;led<5U;led++)
+	    for(led=1U;led<5U;led++) //LED1至4按顺序各闪烁一次
 	  {
 	    blink_led(led, 1U, 250U);
 	  }
-	   for(led=4U;led>0U;led--)
+	   for(led=4U;led>0U;led--) //LED1至4按逆序各闪烁一次
 	  {
 	    blink_led(led, 1U, 250U);
 	  }
 	  }
-	  HAL_Delay(5000);
+	  HAL_Delay(5000); //延时5秒
 	  break;
 	
 	  case 2U:
-	  for(i=0;i>0;i++)
+	  while(1)
 	  {
-	    beep(120U);
+	  beep(120U);
+      for(i=0;i<5;i++)
+	  {
 	    for(led=1U;led<5U;led++)
-	  {
-	    blink_led(led, 1U, 250U);
-	   
-	  }
-	   for(led=4U;led>0U;led--)
-	  {
-	    blink_led(led, 1U, 250U);
-	
-	  }
-	    if (delay_ms < 50U)
+	   {
+	    blink_led(led, 1U, 250U);  //LED1至4按顺序各闪烁一次
+        if (delay_ms > 50U)  //每闪烁一次，闪烁时间缩短10毫秒，直到闪烁时间为50毫秒重置
 	    {
 	      delay_ms -= 10U; 
 	    }
@@ -82,18 +77,28 @@ void alarm_sys_func(void)
 	    {
 	      delay_ms = DELAY_MS;
 	    }
+       }
+	   for(led=4U;led>0U;led--) 
+	   {
+	    blink_led(led, 1U, 250U);  //LED1至4按逆序各闪烁一次
+        if (delay_ms > 50U)  //每闪烁一次，闪烁时间缩短10毫秒，直到闪烁时间为50毫秒重置
+	    {
+	      delay_ms -= 10U; 
+	    }
+	    else
+	    {
+	      delay_ms = DELAY_MS;
+	    }        
+	   }
 	  }
-	  break;
-	
+
 	  default:
 	  break;
 	 }
-	   mode++;
+	  }
 	 
-	     if (mode > 2U)
-	     {
-	         mode = 0U;
-	     }
+	mode++;
 }
+
 
  
